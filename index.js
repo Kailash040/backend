@@ -5,7 +5,7 @@ import fs from 'fs'
 import  {number1,number2} from './features.js'
 console.log(number1,number2);
 const home = fs.readFileSync("./index.html");
-console.log(home)
+// console.log(home)
 console.log(number);
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
