@@ -1,34 +1,17 @@
-console.log("hello ji");
-import express from "express";
-import path from "path";
-import mongoose from "mongoose";
-// ejs npm  i ejs
-// 400 bad request, 404 Not found , 200 ok, 500 internal server error
-// send , json ,setheader ,header,statusCode ,sendstatus it,s a express method ,path, set
-// render method used for render   dynamic data
-//  mongoose.connect("mongodb://localhost:27017",{
-//   dbName:"backend"
-//  }).then(()=>{
-//   console.log("mongodb connected")
-//  })
+require('dotenv').config()
+const express = require("express");
 const app = express();
-// 
-// console.log(path.join(path.resolve(),"public"))
-// express.static(path.join(path.resolve(),"public"));
-app.use(express.static(path.join(path.resolve(),"public")));
-app.set("view engine", "ejs")
+const port = 4000;
+
 app.get("/", (req, res) => {
-  // const pathlocation = path.resolve();
-// res.sendFile(path.join(pathlocation, "./index.html"));
-res.render("index", {name :"Abhishek"})
-
-res.sendFile("index.html")
+  res.send("Hello World!");
 });
-
-//
-
-//
-app.listen(5000, () => {
-  console.log("server started");
+app.get("/about", (req, res) => {
+    res.send("About Section");
+  });
+  app.get("/gallery", (req, res) => {
+    res.send("gallery");
+  });
+app.listen(process.env.PORT, () => {
+  console.log(`Example app listening on port ${port}`);
 });
-     
